@@ -1,57 +1,56 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Link } from 'react-router-dom';
 import './App.css';
+import Header from './pages/commonPage/header';
+import ROUTES, { RenderRoutes } from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div style={{ display: 'flex', height: '100vh', alignItems: 'stretch' }}>
+      <div style={{ flex: 0.3, backgroundColor: '#f2f2f2' }}>{displayRouteMenu(ROUTES)}</div>
+      <div>
+        <Header />
+        <RenderRoutes routes={ROUTES} />
+      </div>
     </div>
+  );
+}
+
+/**
+ * Render a nested hierarchy of route configs with unknown depth/breadth
+ */
+function displayRouteMenu(routes: Array<any>) {
+  /**
+   * Render a single route as a list item link to the config's pathname
+   */
+  function singleRoute(route: any) {
+    return (
+      <li key={route.key}>
+        <Link to={route.path}>
+          {route.key} ({route.path})
+        </Link>
+      </li>
+    );
+  }
+
+  // loop through the array of routes and generate an unordered list
+  return (
+    <ul>
+      {routes.map((route) => {
+        // if this route has sub-routes, then show the ROOT as a list item and recursively render a nested list of route links
+        if (route.routes) {
+          return (
+            <React.Fragment key={route.key}>
+              {singleRoute(route)}
+              {displayRouteMenu(route.routes)}
+            </React.Fragment>
+          );
+        }
+
+        // no nested routes, so just render a single route
+        return singleRoute(route);
+      })}
+    </ul>
   );
 }
 
