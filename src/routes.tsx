@@ -24,6 +24,7 @@ const ROUTES = [
       },
     ],
   },
+  { path: '/login', key: 'APP_LOGIN', exact: true, component: LoginPage },
 ] as Routes[];
 
 export function RenderRoutes(props: RenderRoutesProps) {
