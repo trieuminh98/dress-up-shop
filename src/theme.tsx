@@ -13,6 +13,11 @@ const theme = createTheme({
       default: '#F6F7FB',
     },
   },
+  typography: {
+    allVariants: {
+      color: "inherit !important"
+    },
+  },
 });
 
 export default theme;
