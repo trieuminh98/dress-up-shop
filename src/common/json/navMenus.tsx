@@ -1,163 +1,196 @@
 const navMenus = [
   {
     key: 'Du Exclusive',
-    shopAll: {
-      key: 'All du exclusive',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    navItemList: [
+      {
+        key: 'All du exclusive',
+        itemList: []
+      },
+      {
+        key: 'Shop all',
+        itemList: [
+          {
+            key: 'GD',
+            description: 'Game day'
+          },
+          {
+            key: 'N',
+            description: 'Nashville'
+          }
+        ]
+      }
+    ]
   },
   {
-    key: 'New Arrivals',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    key: 'New arrivals',
+    navItemList: [
+      {
+        key: 'All new arrivals',
+        itemList: []
+      },
+      {
+        key: 'Shop by category',
+        itemList: [
+          {
+            key: 'R',
+            description: 'Restocks'
+          },
+          {
+            key: 'NT',
+            description: 'New tops'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'Clothing',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    navItemList: [
+      {
+        key: 'All clothing',
+        itemList: []
+      },
+      {
+        key: 'Tops',
+        itemList: [
+          {
+            key: 'AT',
+            description: 'All tops'
+          },
+          {
+            key: 'CT',
+            description: 'Casual tops'
+          }
+        ]
+      },
+      {
+        key: 'Bottoms',
+        itemList: [
+          {
+            key: 'AB',
+            description: 'All bottoms'
+          },
+          {
+            key: 'D',
+            description: 'Denim'
+          }
+        ]
+      },
+      {
+        key: 'Shop by trends',
+        itemList: [
+          {
+            key: 'FO',
+            description: 'Fall outfits'
+          },
+          {
+            key: 'GO',
+            description: 'Girly outfits'
+          }
+        ]
+      },
+      {
+        key: 'Collections',
+        itemList: [
+          {
+            key: 'GDO',
+            description: 'Game day outfits'
+          },
+          {
+            key: 'L',
+            description: 'Loungewear'
+          }
+        ]
+      }
+    ]
   },
   {
-    key: 'Shop Dresses',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    key: 'Shop dresses',
+    navItemList: [
+      {
+        key: 'All shop dresses',
+        itemList: []
+      },
+      {
+        key: 'Shop by style',
+        itemList: [
+          {
+            key: 'AD',
+            description: 'All dresses'
+          },
+          {
+            key: 'CD',
+            description: 'Casual dresses'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'Shoes',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    navItemList: [
+      {
+        key: 'All shoes',
+        itemList: []
+      },
+      {
+        key: 'Shop by style',
+        itemList: [
+          {
+            key: 'S',
+            description: 'Sneaker'
+          },
+          {
+            key: 'S',
+            description: 'Sandals'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'Accessories',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    navItemList: [
+      {
+        key: 'All Accessories',
+        itemList: []
+      },
+      {
+        key: 'Accessories',
+        itemList: [
+          {
+            key: 'S',
+            description: 'Sunglasses'
+          },
+          {
+            key: 'BB',
+            description: 'Bandeaus & Bralettes'
+          }
+        ]
+      }
+    ]
   },
   {
     key: 'Sale',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
-  },
-  {
-    key: 'More',
-    shopAll: {
-      key: 'Shop All',
-      itemArray: [
-        {
-          key: 'Game day',
-        },
-        {
-          key: 'Nashville',
-        },
-        {
-          key: 'Charleston',
-        },
-        {
-          key: 'Savannah',
-        },
-      ],
-    },
+    navItemList: [
+      {
+        key: 'All Sale',
+        itemList: []
+      },
+      {
+        key: 'Shop by category',
+        itemList: [
+          {
+            key: 'N',
+            description: 'New markdowns'
+          },
+          {
+            key: 'SDR',
+            description: 'Sale dresses& rompers'
+          }
+        ]
+      }
+    ]
   },
 ];
 
