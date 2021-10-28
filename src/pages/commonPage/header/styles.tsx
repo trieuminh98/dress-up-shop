@@ -6,7 +6,6 @@ const styles = {
       position: 'absolute',
       top: '50px',
       right: '24.8%',
-      
     },
   },
 
@@ -36,6 +35,13 @@ const styles = {
       color: '#e5e5e5',
       marginRight: '10px',
     },
+  },
+
+  navMenu: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '50px',
   },
 };
 
