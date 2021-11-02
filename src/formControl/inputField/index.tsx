@@ -40,7 +40,7 @@ function InputField(props: any) {
       <Typography sx={labelStyle} component='label'>
         {label}
         {isRequired && (
-          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right' } }} component='small'>
+          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right', mt: 1 } }} component='small'>
             Required
           </Typography>
         )}

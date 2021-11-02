@@ -7,6 +7,7 @@ import registerFields from 'common/json/registerField';
 import InputField from 'formControl/inputField';
 import SelectField from 'formControl/selectField';
 import { useForm } from 'react-hook-form';
+import CustomizedButtons from 'providers/buttons';
 
 function RegisterForm(props: any) {
   const { onSubmit } = props;
@@ -15,7 +16,7 @@ function RegisterForm(props: any) {
     email: yup.string().email('You must enter a valid email').required('You must enter a valid email.'),
     password: yup.string().required('You must enter a password.'),
     retypePassword: yup.string().required('You must enter a password.'),
-    birthMonth: yup.number().moreThan(0, 'The "Birth Month" field cannot be blank.')
+    birthMonth: yup.number().moreThan(0, 'The "Birth Month" field cannot be blank.'),
   });
 
   const form = useForm({
@@ -25,7 +26,7 @@ function RegisterForm(props: any) {
       email: '',
       password: '',
       retypePassword: '',
-      birthMonth: 0
+      birthMonth: 0,
     },
   });
 
@@ -44,9 +45,7 @@ function RegisterForm(props: any) {
           </Grid>
         ))}
       </Grid>
-      <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-        Submit
-      </Button>
+      <CustomizedButtons content='CREATE ACCOUNT' type='submit' variant='contained' sx={{display: 'grid', m: '30px auto'}} />
     </Box>
   );
 }
