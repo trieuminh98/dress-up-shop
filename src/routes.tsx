@@ -1,10 +1,11 @@
+import HomePage from 'pages/homePage';
+import RegisterPage from 'pages/RegisterPage';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { RenderRoutesProps, Routes } from './common/types/types';
-import LoginPage from './pages/loginPage';
 
 const ROUTES = [
-  { path: '/', key: 'ROOT', exact: true, component: LoginPage },
+  { path: '/', key: 'ROOT', exact: true, component: HomePage },
   {
     path: '/app',
     key: 'APP',
@@ -24,7 +25,7 @@ const ROUTES = [
       },
     ],
   },
-  { path: '/login', key: 'APP_LOGIN', exact: true, component: LoginPage },
+  { path: '/register', key: 'APP_LOGIN', exact: true, component: RegisterPage },
 ] as Routes[];
 
 export function RenderRoutes(props: RenderRoutesProps) {

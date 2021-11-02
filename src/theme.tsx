@@ -13,9 +13,17 @@ const theme = createTheme({
       default: '#ffffff',
     },
   },
-  typography: {
-    allVariants: {
-      color: "inherit !important"
+  components: { 
+    // Name of the component
+    MuiTypography: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          fontSize: '0.8rem',
+          color: 'inherit'
+        },
+      },
     },
   },
 });

@@ -17,5 +17,6 @@ a:hover {
 }
 
 a {
-  color: #282828
+  color: #282828;
+  text-decoration: none
 }
