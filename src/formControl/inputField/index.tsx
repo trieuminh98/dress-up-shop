@@ -16,8 +16,6 @@ function InputField(props: any) {
     getValues,
   } = form;
 
-  const onChange = (e: any) => {};
-
   const getColor = () => {
     if (errors[name]?.message) {
       return '#ff7d7d !important';
@@ -40,7 +38,7 @@ function InputField(props: any) {
       <Typography sx={labelStyle} component='label'>
         {label}
         {isRequired && (
-          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right', mt: 1 } }} component='small'>
+          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right' } }} component='small'>
             Required
           </Typography>
         )}
@@ -52,6 +50,7 @@ function InputField(props: any) {
           <OutlinedInput
             sx={{ ...inputField, ...{ '& > fieldset': { borderColor: color, borderWidth: '1px !important' } } }}
             {...field}
+            {...fieldProps}
             type={type}
             fullWidth
             name={name}

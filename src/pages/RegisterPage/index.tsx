@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Container } from '@mui/material';
+import React, { useState } from 'react';
 import RegisterForm from './RegisterForm';
 
 function RegisterPage() {
