@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Alert, Box, Button, Grid } from '@mui/material';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Alert, Box, Grid } from '@mui/material';
 import registerFields from 'common/json/registerField';
 import InputField from 'formControl/inputField';
 import SelectField from 'formControl/selectField';
-import { useForm } from 'react-hook-form';
-import CustomizedButtons from 'providers/buttons';
+import CustomizedButtons from 'providers/Button';
+import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import styles from './styles';
 
 function RegisterForm(props: any) {
   const { onSubmit, isShowAlertCaptcha, onVerifyCaptcha } = props;
-  const { styledForm } = styles;
+  const { styledForm, alert } = styles;
 
   const schema = yup.object().shape({
     email: yup.string().email('You must enter a valid email').required('You must enter a valid email.'),
@@ -42,7 +41,7 @@ function RegisterForm(props: any) {
   return (
     <Box component='form' onSubmit={handleSubmit(onSubmit)} noValidate sx={styledForm}>
       {isShowAlertCaptcha && (
-        <Alert sx={{ m: '15px 0', backgroundColor: '#fdd', color: '#333' }} severity='error'>
+        <Alert sx={alert} severity='error'>
           The captcha you entered is incorrect. Please try again.
         </Alert>
       )}

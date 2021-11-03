@@ -89,7 +89,7 @@ function SelectField(props: any) {
       <Typography sx={labelStyle} component='label'>
         {label}
         {isRequired && (
-          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right', mt: 1 } }} component='small'>
+          <Typography sx={{ ...requiredStyle, ...{ textTransform: 'uppercase', float: 'right' } }} component='small'>
             Required
           </Typography>
         )}
@@ -102,6 +102,7 @@ function SelectField(props: any) {
             sx={{ '& .MuiInputBase-input': { borderColor: color, borderWidth: '1px !important' } }}
             labelId='demo-simple-select-label'
             {...field}
+            {...fieldProps}
             id={name}
             input={<BootstrapInput />}
             MenuProps={menuProps}

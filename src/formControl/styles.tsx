@@ -12,6 +12,7 @@ const styles = {
   requiredStyle: {
     color: '#757575',
     fontSize: '0.59rem',
+    mt: 1,
   },
   dropdownStyle: {
     fontSize: '0.8em',
