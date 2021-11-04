@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import * as React from 'react';
 
-const ColorButton = styled(Button)(({ theme }) => ({
+const ColorButton = styled(Button)(() => ({
   backgroundColor: '#202020',
   borderColor: '#202020',
   color: '#fff',

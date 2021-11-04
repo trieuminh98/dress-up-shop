@@ -63,10 +63,6 @@ function SelectField(props: any) {
     getValues,
   } = form;
 
-  const onChange = (e: any) => {
-    console.log(e);
-  };
-
   const getColor = () => {
     if (errors[name]?.message) {
       return '#ff7d7d !important';

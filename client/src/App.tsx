@@ -1,5 +1,5 @@
+import CustomizedBreadcrumbs from 'providers/breadscrum';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
 import Header from './pages/commonPage/header';
 import ROUTES, { RenderRoutes } from './routes';

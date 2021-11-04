@@ -1,4 +1,5 @@
 import { Container } from '@mui/material';
+import CustomizedBreadcrumbs from 'providers/breadscrum';
 import React, { useState } from 'react';
 import RegisterForm from './RegisterForm';
 
@@ -21,6 +22,7 @@ function RegisterPage() {
 
   return (
     <Container maxWidth='lg' sx={{ pt: 4.5 }}>
+      <CustomizedBreadcrumbs />
       <RegisterForm {...{ onSubmit, isShowAlertCaptcha, onVerifyCaptcha }} />
     </Container>
   );
