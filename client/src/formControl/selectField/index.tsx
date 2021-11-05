@@ -103,13 +103,13 @@ function SelectField(props: any) {
             input={<BootstrapInput />}
             MenuProps={menuProps}
           >
-            {menuItems.map(({ value = '', description = '' }) => {
-              return <MenuItem value={value}>{description}</MenuItem>;
+            {menuItems.map(({ value = '', description = '' }, index: any) => {
+              return <MenuItem key={index} value={value}>{description}</MenuItem>;
             })}
           </Select>
         )}
       />
-      <FormHelperText sx={errorMessage}>
+      <FormHelperText component="span" sx={errorMessage}>
         {errors[name]?.message && (
           <div>
             <FontAwesomeIcon icon={faTimes} /> {errors[name]?.message}
