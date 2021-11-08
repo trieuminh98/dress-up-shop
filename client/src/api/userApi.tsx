@@ -8,8 +8,8 @@ const userApi = {
     return axiosClient.get(url);
   },
 
-  postUser(data: any) {
-    const url = `${API_URL}/userPostTest`;
+  register(data: any) {
+    const url = `api/register`;
     return axiosClient.post(url, data);
   },
 };

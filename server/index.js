@@ -1,9 +1,11 @@
-const express = require("express");
+import dotenv from 'dotenv';
+import moongose from 'mongoose';
+import express from 'express';
+import userRouter from './routes/user.js';
+import authRouter from './routes/auth.js';
+import cors from 'cors';
+
 const app = express();
-const dotenv = require("dotenv");
-const moongose = require("mongoose");
-const userRouter = require("./routes/user");
-var cors = require("cors");
 
 dotenv.config();
 
@@ -20,6 +22,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use("/api/users", userRouter);
+app.use("/api", authRouter);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("PORT 5000 is running");

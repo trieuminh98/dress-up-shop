@@ -1,13 +1,15 @@
-const router = require("express").Router();
+import Router from "express";
 
-router.get("/userTest", (req, res) => {
+const userRouter = Router();
+
+userRouter.get("/userTest", (req, res) => {
   res.send("user test is successfully");
 });
 
-router.post("userPostTest", (req, res) => {
+userRouter.post("userPostTest", (req, res) => {
   const userName = req.body.userName;
   console.log(userName);
   res.send("your user name is: " + userName);
 });
 
-module.exports = router;
+export default userRouter;

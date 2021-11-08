@@ -1,5 +1,6 @@
 import HomePage from 'pages/homePage';
 import RegisterPage from 'pages/RegisterPage';
+import SignInPage from 'pages/SignInPage';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { RenderRoutesProps, Routes } from './common/types/types';
@@ -25,7 +26,8 @@ const ROUTES = [
       },
     ],
   },
-  { path: '/register', key: 'APP_LOGIN', exact: true, component: RegisterPage },
+  { path: '/register', key: 'APP_REGISTER', exact: true, component: RegisterPage },
+  { path: '/login', key: 'APP_LOGIN', exact: true, component: SignInPage },
 ] as Routes[];
 
 export function RenderRoutes(props: RenderRoutesProps) {
