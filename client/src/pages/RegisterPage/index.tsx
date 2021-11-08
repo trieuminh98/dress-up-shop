@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import userApi from 'api/userApi';
+import authApi from 'api/authApi';
 import CustomizedBreadcrumbs from 'providers/breadscrum';
 import React, { useEffect, useState } from 'react';
 import RegisterForm from './RegisterForm';
@@ -15,7 +15,7 @@ function RegisterPage() {
     }
     setIsShowAlertCaptcha(false);
     console.log('submit', data);
-    const userData = await userApi.register(data);
+    const userData = await authApi.register(data);
     console.log(userData);
   };
 
