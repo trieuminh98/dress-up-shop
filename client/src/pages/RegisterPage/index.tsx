@@ -15,7 +15,7 @@ function RegisterPage() {
     }
     setIsShowAlertCaptcha(false);
     console.log('submit', data);
-    const userData = await userApi.getUser();
+    const userData = await userApi.register(data);
     console.log(userData);
   };
 

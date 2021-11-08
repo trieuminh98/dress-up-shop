@@ -58,7 +58,7 @@ function InputField(props: any) {
           />
         )}
       />
-      <FormHelperText sx={errorMessage}>
+      <FormHelperText component="span" sx={errorMessage}>
         {errors[name]?.message && (
           <div>
             <FontAwesomeIcon icon={faTimes} /> {errors[name]?.message}

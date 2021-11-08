@@ -16,8 +16,18 @@ function RegisterForm(props: any) {
 
   const schema = yup.object().shape({
     email: yup.string().email('You must enter a valid email').required('You must enter a valid email.'),
-    password: yup.string().required('You must enter a password.'),
-    retypePassword: yup.string().required('You must enter a password.'),
+    password: yup
+      .string()
+      .required('You must enter a password.')
+      .min(7, 'Passwords must be at least 7 characters and contain both alphabetic and numeric characters.')
+      .test('alphabets', 'Name must only contain alphabets', (value = '') => {
+        console.log('alphabets', /^(?=.*\b(?=\S*[a-zA-Z])(?=\S*[0-9]))/.test(value), value);
+        return /^(?=.*\b(?=\S*[a-zA-Z])(?=\S*[0-9]))/.test(value);
+      }),
+    retypePassword: yup
+      .string()
+      .required('You must enter a password.')
+      .oneOf([yup.ref('password')], 'Your passwords do not match.'),
     birthMonth: yup.number().moreThan(0, 'The "Birth Month" field cannot be blank.'),
   });
 
