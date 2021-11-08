@@ -1,14 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CustomizedBreadcrumbs from 'providers/breadscrum';
 import { Container } from '@mui/material';
-import SignInForm from './SignInForm';
+import authApi from 'api/authApi';
+import CustomizedBreadcrumbs from 'providers/breadscrum';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
+import SignInForm from './SignInForm';
 
 function SignInPage(props: any) {
   const history = useHistory();
   const onSubmit = async (data: any) => {
-    console.log('submit');
+    console.log('submit', data);
+    const userData = await authApi.login(data);
+    localStorage.setItem('user', JSON.stringify(userData));
+    console.log(userData);
   };
 
   const handleOnClick = () => {
