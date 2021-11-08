@@ -61,7 +61,7 @@ function RegisterForm(props: any) {
             {isSelectBox ? (
               <SelectField {...{ form, name, label, isRequired, menuItems }} {...{ form }} />
             ) : (
-              <InputField autoFocus placeholder='e.g. Kelly' {...{ form, name, label, isRequired, type }} />
+              <InputField {...{ form, name, label, isRequired, type }} />
             )}
           </Grid>
         ))}
