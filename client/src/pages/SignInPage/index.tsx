@@ -1,21 +1,30 @@
 import { Container } from '@mui/material';
+import { unwrapResult } from '@reduxjs/toolkit';
 import authApi from 'api/authApi';
+import { AppDispatch } from 'app/store';
 import CustomizedBreadcrumbs from 'providers/breadscrum';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { loginAsync } from 'slice/userSlice';
 import SignInForm from './SignInForm';
 
 function SignInPage(props: any) {
   const history = useHistory();
+  const dispatch: AppDispatch = useDispatch();
   const onSubmit = async (data: any) => {
-    console.log('submit', data);
-    const userData = await authApi.login(data);
-    localStorage.setItem('user', JSON.stringify(userData));
-    console.log(userData);
+    try {
+      const action = loginAsync(data);
+      const resultAction = await dispatch(action);
+      const user = unwrapResult(resultAction);
+      console.log('user', user)
+    } catch {
+      console.log('Fail to login');
+    }
   };
 
   const handleOnClick = () => {
-    history.push('/register')
+    history.push('/register');
   };
 
   return (
