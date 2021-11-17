@@ -20,7 +20,7 @@ authRouter.post("/register", async (req, res) => {
   try {
     const savedUser = await newUser.save();
     //Status 201 ==> Created successfully
-    res.status(201).json("register successfully");
+    res.status(201).json({ message: "register successfully" });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -46,13 +46,11 @@ authRouter.post("/login", async (req, res) => {
           process.env.JWT_SECRET_KEY,
           { expiresIn: "1d" }
         );
-        res.status(200).json({ ...other, accessToken });
-        return;
+        return res.status(200).json({ ...other, accessToken });
       }
-      res.status(401).json("Wrong crendentials!");
-      return;
+      return res.status(401).json({ message: "Wrong crendentials!" });
     }
-    res.status(500).json("Wrong email");
+    res.status(500).json({ message: "Wrong email" });
   } catch (err) {
     res.status(500).json(err);
   }

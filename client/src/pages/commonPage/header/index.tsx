@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBox from '../navigationBox';
 import styles from './styles';
-import logo from 'assets/images/logo.png'
+import logo from 'assets/images/logo.png';
 
 function Header() {
   const { navUserActStyle, navUserActRegister, navUserActCart, navMenu } = styles;
@@ -27,8 +27,7 @@ function Header() {
     setShow(false);
   };
 
-  useEffect(() => {
-  }, [navItemList]);
+  useEffect(() => {}, [navItemList]);
 
   return (
     <>
@@ -37,17 +36,17 @@ function Header() {
           <Grid sx={{ alignItems: 'center', height: '135px' }} container spacing={2}>
             <Grid item xs={4}>
               <Box sx={{ display: 'flex' }}>
-                <Link  to='/login'>
+                <Link to='/login'>
                   <Typography sx={navUserActStyle}>
                     <FontAwesomeIcon icon={faSignInAlt} /> <span>Sign in</span>
                   </Typography>
                 </Link>
-                <Link  to='/register'>
+                <Link to='/register'>
                   <Typography sx={{ ...navUserActStyle, ...navUserActRegister }}>
                     <span>Register</span>
                   </Typography>
                 </Link>
-                <Link  to='/login'>
+                <Link to='/login'>
                   <Typography sx={navUserActStyle}>
                     <FontAwesomeIcon icon={faSearch} /> <span>Search</span>
                   </Typography>
@@ -55,16 +54,18 @@ function Header() {
               </Box>
             </Grid>
             <Grid item xs={4}>
-              <img style={{ display: 'block', margin: '0 auto' }} alt='app_logo' src={logo} />
+              <Link to='/'>
+                <img style={{ display: 'block', margin: '0 auto' }} alt='app_logo' src={logo} />
+              </Link>
             </Grid>
             <Grid item xs={4}>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Link style={{ width: '25%'  }} to='/login'>
+                <Link style={{ width: '25%' }} to='/login'>
                   <Typography sx={{ ...navUserActStyle, ...{ textAlign: 'center' } }}>
                     <FontAwesomeIcon icon={faGift} /> <span>Gift Certificate</span>
                   </Typography>
                 </Link>
-                <Link style={{ width: '25%'  }} to='/login'>
+                <Link style={{ width: '25%' }} to='/login'>
                   <Typography sx={{ ...navUserActStyle, ...navUserActCart, ...{ textAlign: 'center' } }}>
                     <FontAwesomeIcon icon={faCartPlus} /> <span>Cart</span>
                   </Typography>

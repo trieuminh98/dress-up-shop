@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from './styles';
 
 function NavigationBox(props: any) {
@@ -8,18 +8,18 @@ function NavigationBox(props: any) {
   const { navBox, navItemHeader, navItem } = styles;
   return (
     <Box sx={{ ...navBox, ...{ display: show ? 'flex' : 'none', textTransform: 'uppercase', position: 'absolute' } }}>
-      {navItemList.map(({ key = '', itemList = [] }) => {
+      {navItemList.map(({ key: keyItem = '', itemList = [] }, index: string) => {
         return (
-          <>
+          <Fragment key={index}>
             <Box sx={{ width: '15%', p: '0 10px' }}>
-              <Typography sx={navItemHeader}>{key}</Typography>
+              <Typography sx={navItemHeader}>{keyItem}</Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
-                {(itemList as any).map((item: any) => {
-                  return <Box sx={navItem}>{item.description}</Box>;
+                {(itemList as any).map((item: any, index: string) => {
+                  return <Box key={index} sx={navItem}>{item.description}</Box>;
                 })}
               </Box>
             </Box>
-          </>
+          </Fragment>
         );
       })}
     </Box>
