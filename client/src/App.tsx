@@ -1,4 +1,4 @@
-import CustomizedBreadcrumbs from 'providers/breadscrum';
+import Footer from 'pages/commonPage/footer';
 import React from 'react';
 import './App.css';
 import Header from './pages/commonPage/header';
@@ -9,6 +9,7 @@ function App() {
     <div>
       <Header />
       <RenderRoutes routes={ROUTES} />
+      <Footer />
     </div>
   );
 }
