@@ -39,6 +39,7 @@ const styles = {
       backgroundColor: '#000',
       opacity: 0.1,
       transition: 'opacity .8s ease',
+      height: '98%'
     },
   },
   img: {

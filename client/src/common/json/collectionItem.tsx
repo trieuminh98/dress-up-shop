@@ -4,6 +4,14 @@ import collectionItemFallTrend from 'assets/images/collection-item-fall-trend.jp
 import collectionItemTops from 'assets/images/collection-item-tops.jpg';
 import promoteItemOutfitInspo from 'assets/images/promote-item-outfit-inspo.jpg';
 import promoteItemLayerUp from 'assets/images/promote-item-layer-up.jpg';
+import productItem1Static from 'assets/images/product-item-1-static.jpg';
+import productItem1Hover from 'assets/images/product-item-1-hover.jpg';
+import productItem2Static from 'assets/images/product-item-2-static.jpg';
+import productItem2Hover from 'assets/images/product-item-2-hover.jpg';
+import productItem3Static from 'assets/images/product-item-3-static.jpg';
+import productItem3Hover from 'assets/images/product-item-3-hover.jpg';
+import productItem4Static from 'assets/images/product-item-4-static.jpg';
+import productItem4Hover from 'assets/images/product-item-4-hover.jpg';
 
 const displayItems = {
   collectionItems: [
@@ -42,6 +50,36 @@ const displayItems = {
       subLabel: 'Cool weather',
       buttonLabel: 'Shop all new',
       src: promoteItemOutfitInspo,
+    },
+  ],
+  productItems: [
+    {
+      id: 'PPI1',
+      label: 'Red Glory Glory Script Tee',
+      price: '$ 32.00',
+      staticSrc: productItem1Static,
+      hoverSrc: productItem1Hover,
+    },
+    {
+      id: 'PPI2',
+      label: 'Black Georgia Pullover',
+      price: '$ 48.00',
+      staticSrc: productItem2Static,
+      hoverSrc: productItem2Hover,
+    },
+    {
+      id: 'PPI3',
+      label: 'White Georgia Pullover',
+      price: '$ 48.00',
+      staticSrc: productItem3Static,
+      hoverSrc: productItem3Hover,
+    },
+    {
+      id: 'PPI4',
+      label: 'In Kirby We Trust Tee',
+      price: '$ 32.00',
+      staticSrc: productItem4Static,
+      hoverSrc: productItem4Hover,
     },
   ],
 };

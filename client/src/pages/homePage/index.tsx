@@ -9,9 +9,10 @@ import TypeBanner from './typeBanner';
 import saleBanner from 'assets/images/sale-banner.jpg';
 import exclusivesBanner from 'assets/images/exclusives-banner.jpg';
 import { Link } from 'react-router-dom';
+import ProductTaskCard from './productTaskCard';
 
 function HomePage() {
-  const { collectionItems, promoteItems } = displayItems;
+  const { collectionItems, promoteItems, productItems } = displayItems;
   const history = useHistory();
 
   const redirectUrl = {
@@ -58,6 +59,15 @@ function HomePage() {
         <Banner bannerUrl={saleBanner} />
         <TypeBanner leftCnt='GIFT IDEA FOR THE GIRL WHO HAS EVERYTHING' rightCnt='SHOP GIFT CARDS' bgColor='#f7ede8' />
         <Banner bannerUrl={exclusivesBanner} />
+        <Container maxWidth='xl' sx={{ mt: 6, mb: 4 }}>
+          <Grid container spacing={{ xs: 2, md: 3 }}>
+            {productItems.map((item) => (
+              <Grid item xs={12} sm={6} md={3} lg={3} xl={3} key={item.id}>
+                <ProductTaskCard {...{ item }} />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Box>
     </Box>
   );
