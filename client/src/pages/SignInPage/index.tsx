@@ -1,6 +1,5 @@
 import { Container } from '@mui/material';
 import { unwrapResult } from '@reduxjs/toolkit';
-import authApi from 'api/authApi';
 import { AppDispatch } from 'app/store';
 import CustomizedBreadcrumbs from 'providers/breadscrum';
 import React, { useState } from 'react';

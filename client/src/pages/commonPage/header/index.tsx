@@ -2,13 +2,12 @@ import { faCartPlus, faChevronDown, faGift, faSearch, faSignInAlt } from '@forta
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { LOGO_URL } from 'common/constants/constants';
+import logo from 'assets/images/logo.png';
 import navMenus from 'common/json/navMenus';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBox from '../navigationBox';
 import styles from './styles';
-import logo from 'assets/images/logo.png';
 
 function Header() {
   const { navUserActStyle, navUserActRegister, navUserActCart, navMenu } = styles;
