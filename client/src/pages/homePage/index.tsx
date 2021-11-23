@@ -5,6 +5,10 @@ import CollectionItemTaskCard from './collectionItemTaskCard';
 import displayItems from 'common/json/collectionItem';
 import PromoteItemTaskCard from './promoteItemTaskCard';
 import { useHistory } from 'react-router';
+import TypeBanner from './typeBanner';
+import saleBanner from 'assets/images/sale-banner.jpg';
+import exclusivesBanner from 'assets/images/exclusives-banner.jpg';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   const { collectionItems, promoteItems } = displayItems;
@@ -21,6 +25,15 @@ function HomePage() {
     history.push(url);
   };
 
+  const Banner = (props: any) => {
+    const { bannerUrl } = props;
+    return (
+      <Link to='/login'>
+        <Box component='img' src={bannerUrl} pt={1} width='100%' />
+      </Link>
+    );
+  };
+
   return (
     <Box>
       <Box component='img' sx={{ width: '100%' }} src={heroCarausel} alt='hero carausel' />
@@ -33,13 +46,19 @@ function HomePage() {
           ))}
         </Grid>
       </Container>
-      <Grid p='0 10px' container spacing={1}>
-        {promoteItems.map((item) => (
-          <Grid item xs={12} sm={12} md={6} lg={6} xl={6} key={item.id}>
-            <PromoteItemTaskCard {...{ item, promoteItemOnClick }} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box p='0 10px'>
+        <Grid container spacing={1}>
+          {promoteItems.map((item) => (
+            <Grid item xs={12} sm={12} md={6} lg={6} xl={6} key={item.id}>
+              <PromoteItemTaskCard {...{ item, promoteItemOnClick }} />
+            </Grid>
+          ))}
+        </Grid>
+        <TypeBanner leftCnt='shop new collections 2-3x weekly' rightCnt='SHOP OUR LATEST RELEASE' bgColor='#f7ede8' />
+        <Banner bannerUrl={saleBanner} />
+        <TypeBanner leftCnt='GIFT IDEA FOR THE GIRL WHO HAS EVERYTHING' rightCnt='SHOP GIFT CARDS' bgColor='#f7ede8' />
+        <Banner bannerUrl={exclusivesBanner} />
+      </Box>
     </Box>
   );
 }
