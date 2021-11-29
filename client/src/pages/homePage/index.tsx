@@ -1,18 +1,20 @@
-import React from 'react';
-import heroCarausel from 'assets/images/hero-carousel.jpg';
-import { Box, Container, Grid } from '@mui/material';
-import CollectionItemTaskCard from './collectionItemTaskCard';
-import displayItems from 'common/json/collectionItem';
-import PromoteItemTaskCard from './promoteItemTaskCard';
-import { useHistory } from 'react-router';
-import TypeBanner from './typeBanner';
-import saleBanner from 'assets/images/sale-banner.jpg';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import exclusivesBanner from 'assets/images/exclusives-banner.jpg';
+import heroCarausel from 'assets/images/hero-carousel.jpg';
+import saleBanner from 'assets/images/sale-banner.jpg';
+import displayItems from 'common/json/collectionItem';
+import React from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import CollectionItemTaskCard from './collectionItemTaskCard';
 import ProductTaskCard from './productTaskCard';
+import PromoteItemTaskCard from './promoteItemTaskCard';
+import styles from './styles';
+import TypeBanner from './typeBanner';
 
 function HomePage() {
   const { collectionItems, promoteItems, productItems } = displayItems;
+  const { richText, mainContent } = styles;
   const history = useHistory();
 
   const redirectUrl = {
@@ -37,7 +39,7 @@ function HomePage() {
 
   return (
     <Box>
-      <Box component='img' sx={{ width: '100%' }} src={heroCarausel} alt='hero carausel' />
+      <Box component='img' width='100%' src={heroCarausel} alt='hero carausel' />
       <Container maxWidth='xl' sx={{ mt: 6, mb: 4 }}>
         <Grid container spacing={{ xs: 2, md: 3 }}>
           {collectionItems.map(({ id, label, src }) => (
@@ -67,6 +69,14 @@ function HomePage() {
               </Grid>
             ))}
           </Grid>
+          <Box sx={richText}>
+            <Typography sx={mainContent}>Trendy Clothing & Accessories at Dress Up - An Online Dress Boutique</Typography>
+            <Typography>
+              Dress Up is a women's clothing store with new trendy and affordable arrivals dropping 2-3 times weekly. Shop the latest trends in
+              women's fashion dresses, tops, sweaters, skirts, jeans, accessories & more. At Dress Up, you can shop at one of the 18 locations across
+              the southeast, or online 24/7 at <a href='/'>ShopDressup.com.</a>
+            </Typography>
+          </Box>
         </Container>
       </Box>
     </Box>
