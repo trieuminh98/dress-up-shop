@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import authApi from 'api/authApi';
 import CustomizedBreadcrumbs from 'providers/breadscrum';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import RegisterForm from './RegisterForm';
 
 function RegisterPage() {
