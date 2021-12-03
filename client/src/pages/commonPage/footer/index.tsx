@@ -1,17 +1,18 @@
 import { Box, Container, Grid, Typography, } from '@mui/material';
-import logo2 from 'assets/images/logo2.png';
+import shopLogo from 'assets/images/shopLogo.png';
 import styles from './styles';
 import React from 'react';
 
 function Footer(props: any) {
-  const { container } = styles;
-  const { link } = styles;
-  const { title } = styles;
+  const { container, link, title } = styles;
+  const quickLinks = ['Shipping + Returns', 'FAQs', 'Contact Us','Gift Cards','Privacy Policy','Terms of Service','Refund Policy'];
+  const aboutUs = ['Our Story + Mission', 'Locations', 'Collaborations', 'Careers'];
+
   return (
-    <Box sx={{ background: '#212121' }}>
+    <Box bgcolor='#212121'>
       <Container maxWidth='xl' sx={container}>
         <Box component='p'>
-            <img style={{ width: 164, height: 46, }} src={logo2} alt="logo" />
+            <Box component='img' width={164} height={46} src={shopLogo} alt='shopLogo'></Box>
         </Box>
       </Container>
       <Container maxWidth='xl' sx={{ background: '#212121' }}>
@@ -20,13 +21,10 @@ function Footer(props: any) {
               <Box component="span">
               <Typography sx={ title }>QUICK LINKS</Typography> 
               <Typography>               
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Shipping + Returns</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>FAQs</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Contact Us</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Gift Cards</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Privacy Policy</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Terms of Service</a><br /></Typography>
-                <Typography sx={ link }> <a style={{ color: 'white', }}>Refund Policy</a><br /></Typography>
+                {quickLinks.map((item:any) => {
+                    return <Typography sx={ link }><a style={{ color: 'white', }}></a>{ item }</Typography>;
+                  })
+                }
               </Typography>              
               </Box>              
             </Grid>
@@ -34,10 +32,10 @@ function Footer(props: any) {
               <Box component="span"> 
                 <Typography sx={ title }>ABOUT US</Typography> 
                 <Typography>
-                  <Typography sx={ link }><a style={{ color: 'white', }}>Our Story + Mission</a><br /></Typography>
-                  <Typography sx={ link }><a style={{ color: 'white', }}>Locations</a><br /> </Typography>
-                  <Typography sx={ link }><a style={{ color: 'white', }}>Collaborations</a><br /> </Typography>
-                  <Typography sx={ link }><a style={{ color: 'white', }}>Careers</a><br /> </Typography>
+                  {aboutUs.map((item:any) => {
+                    return <Typography sx={ link }><a style={{ color: 'white', }}></a>{ item }</Typography>;
+                    })
+                  }
                 </Typography>
               </Box>
             </Grid>

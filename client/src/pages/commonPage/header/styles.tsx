@@ -43,6 +43,21 @@ const styles = {
     alignItems: 'center',
     height: '50px',
   },
+  drawerScrollable: {
+    width:'400px',
+    fontSize:'13px',
+    fontFamily:'sans-serif',
+    marginLeft: '45px',
+    paddingTop: '50px',
+  },
+  drawerTitle: {
+    fontSize:'20px',
+    fontFamily:'sans-serif',
+    marginLeft: '45px',
+    paddingTop: '10px',
+    position: 'relative',
+    letterSpacing: '3px',
+  },
 };
 
 export default styles;
