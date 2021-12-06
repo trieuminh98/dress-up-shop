@@ -3,6 +3,7 @@ import exclusivesBanner from 'assets/images/exclusives-banner.jpg';
 import heroCarausel from 'assets/images/hero-carousel.jpg';
 import saleBanner from 'assets/images/sale-banner.jpg';
 import displayItems from 'common/json/collectionItem';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -14,7 +15,7 @@ import TypeBanner from './typeBanner';
 
 function HomePage() {
   const { collectionItems, promoteItems, productItems } = displayItems;
-  const { richText, mainContent } = styles;
+  const { richText, mainContent, heroCarauselStyle } = styles;
   const history = useHistory();
 
   const redirectUrl = {
@@ -39,7 +40,14 @@ function HomePage() {
 
   return (
     <Box>
-      <Box component='img' width='100%' src={heroCarausel} alt='hero carausel' />
+      <Box overflow='hidden'>
+        <motion.div initial={{ x: '10vw', opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }}>
+          <Box sx={heroCarauselStyle} component='img' src={heroCarausel} alt='hero carausel' />
+        </motion.div>
+        {/* <motion.div initial={{ x: '10vw', opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }}  viewport={{ once: true }}>
+          <Box sx={heroCarauselStyle} component='img' src={heroCarausel} alt='hero carausel' />
+        </motion.div> */}
+      </Box>
       <Container maxWidth='xl' sx={{ mt: 6, mb: 4 }}>
         <Grid container spacing={{ xs: 2, md: 3 }}>
           {collectionItems.map(({ id, label, src }) => (
@@ -60,7 +68,11 @@ function HomePage() {
         <TypeBanner leftCnt='shop new collections 2-3x weekly' rightCnt='SHOP OUR LATEST RELEASE' bgColor='#f7ede8' />
         <Banner bannerUrl={saleBanner} />
         <TypeBanner leftCnt='GIFT IDEA FOR THE GIRL WHO HAS EVERYTHING' rightCnt='SHOP GIFT CARDS' bgColor='#f7ede8' />
-        <Banner bannerUrl={exclusivesBanner} />
+        <Box overflow='hidden'>
+          <motion.div initial={{ x: '10vw', opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+            <Banner bannerUrl={exclusivesBanner} />
+          </motion.div>
+        </Box>
         <Container maxWidth='xl' sx={{ mt: 6, mb: 4 }}>
           <Grid container spacing={{ xs: 2, md: 3 }}>
             {productItems.map((item) => (

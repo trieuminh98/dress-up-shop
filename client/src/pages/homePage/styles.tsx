@@ -1,3 +1,5 @@
+import { fadeInRight } from "services/animation";
+
 const styles = {
   richText: {
     mt: 14,
@@ -10,6 +12,9 @@ const styles = {
     mb: 3,
     letterSpacing: '0.1em',
     fontSize: '1.2em',
+  },
+  heroCarauselStyle: {
+    width: '100%',
   },
 } as const;
 
