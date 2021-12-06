@@ -1,6 +1,6 @@
 import { faCartPlus, faChevronDown, faGift, faSearch, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Drawer } from '@mui/material';
 import { Box } from '@mui/system';
 import logo from 'assets/images/logo.png';
 import navMenus from 'common/json/navMenus';
@@ -8,11 +8,34 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBox from '../navigationBox';
 import styles from './styles';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
-  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu } = styles;
+  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu, drawerScrollable, drawerTitle } = styles;
   const [show, setShow] = useState(false);
   const [navItemList, setNavItemList] = useState([]);
+  const [state,setState] = useState(false);
+
+  const toggleDrawer = (open:any) => {
+    setState(open)
+  }
+
+  const list = () =>{
+    return(
+      <div onClick={() => toggleDrawer(false)}>        
+        <Box component='p' sx={{fontSize:'20px',
+                                fontFamily:'sans-serif',
+                                marginLeft: '45px',
+                                paddingTop: '10px',
+                                position: 'relative',
+                                letterSpacing: '3px',}}>
+          Cart
+          <CloseIcon sx={{ position: 'absolute' , right: '20px', bottom:'0px'}}></CloseIcon>
+        </Box>
+        <Box component='p' sx={drawerScrollable}>Your cart is currently empty. </Box>
+      </div>
+    );
+  }
 
   const onHoverOpen = (event: any) => {
     const {
@@ -66,7 +89,14 @@ function Header() {
                 </Link>
                 <Link style={{ width: '25%' }} to='/login'>
                   <Typography sx={{ ...navUserActStyle, ...navUserActCart, ...{ textAlign: 'center' } }}>
-                    <FontAwesomeIcon icon={faCartPlus} /> <span>Cart</span>
+                    <FontAwesomeIcon icon={faCartPlus} onClick={() => toggleDrawer(true)} /> <span>Cart</span>
+                    <Drawer
+                      anchor={'right'}
+                      open={state}
+                      onClose={() => toggleDrawer(false)}                   
+                    >
+                      {list()}
+                    </Drawer>
                   </Typography>
                 </Link>
                 {/* <Link style={{ width: '55%' }} to='/login'>
