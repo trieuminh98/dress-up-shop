@@ -15,6 +15,19 @@ const styles = {
     fontSize: '0.8rem',
     transition: 'color .15s ease',
     padding: '0 10px',
+    '&:hover > #menu-0': {
+      visibility: 'visible'
+    }
+  },
+
+  box: {
+    padding: '0 10px',
+    '#menu-0': {
+      display: 'none'
+    },
+    '&:hover #menu-0': {
+      display: 'block'
+    }
   },
 
   navUserActStyleDiv: {

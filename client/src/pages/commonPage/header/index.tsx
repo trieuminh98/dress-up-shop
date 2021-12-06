@@ -1,19 +1,17 @@
 import { faCartPlus, faChevronDown, faGift, faSearch, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Grid, Typography, Drawer } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { Container, Drawer, Grid, MenuItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import logo from 'assets/images/logo.png';
 import navMenus from 'common/json/navMenus';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBox from '../navigationBox';
 import styles from './styles';
-import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
-  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu, drawerScrollable, drawerTitle } = styles;
-  const [show, setShow] = useState(false);
-  const [navItemList, setNavItemList] = useState([]);
+  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu, drawerScrollable, box } = styles;
   const [state, setState] = useState(false);
 
   const toggleDrawer = (open: any) => {
@@ -37,19 +35,23 @@ function Header() {
     );
   };
 
-  const onHoverOpen = (event: any) => {
-    const {
-      target: { id },
-    } = event;
-    setNavItemList((navMenus[+id] as any).navItemList);
-    setShow(true);
+  const ShortMenu = (props: any) => {
+    const { navItemList, index } = props;
+    return (
+      <Box position='absolute' zIndex='999' component='div' id={`menu-${index}`} bgcolor='white'>
+        {navItemList.map((item: any) => {
+          return <MenuItem key={item.key}>{item.description}</MenuItem>;
+        })}
+      </Box>
+    );
   };
 
-  const onHoverClose = () => {
-    setShow(false);
+  const getHoverCss = (index: number, isShort: boolean) => {
+    const cssObj = {} as any;
+    cssObj[`#menu-${index}`] = { display: 'none' };
+    cssObj[`&:hover #menu-${index}`] = { display: isShort ? 'block' : 'flex' };
+    return cssObj;
   };
-
-  useEffect(() => {}, [navItemList]);
 
   return (
     <>
@@ -93,35 +95,28 @@ function Header() {
                     {list()}
                   </Drawer>
                 </Typography>
-                {/* <Link style={{ width: '55%' }} to='/login'>
-                <img alt='app_logo' style={{ width: '25px' }} src={LOCATION_IMAGE_URL} />
-                <Box sx={{ display: 'inline-block' }}>
-                  <Typography>SET YOUR STORE</Typography>
-                  <Typography>View pricing & availability</Typography>
-                </Box>
-              </Link> */}
               </Box>
             </Grid>
           </Grid>
         </Box>
         <Box sx={navMenu} pl={2} pr={2}>
-          {navMenus.map((nav: any, index: number) => {
+          {navMenus.map(({ key, navItemList, isShort }, index: number) => {
             return (
-              <div key={index} style={{ padding: '0 10px' }}>
-                <Link onMouseEnter={onHoverOpen} onMouseLeave={onHoverClose} to='/login'>
+              <Box key={index} sx={{ ...box, ...getHoverCss(index, Boolean(isShort)) }}>
+                <Link to='/login'>
                   <Typography
                     id={index.toString()}
                     sx={{ ...navUserActStyle, ...{ fontSize: '12px', fontWeight: '500', textTransform: 'uppercase', color: 'inherit' } }}
                   >
-                    <span>{nav.key}</span> <FontAwesomeIcon color='#f8b6a9' icon={faChevronDown} />
+                    <span>{key}</span> <FontAwesomeIcon color='#f8b6a9' icon={faChevronDown} />
                   </Typography>
                 </Link>
-              </div>
+                {isShort ? <ShortMenu {...{ navItemList, index }} /> : <NavigationBox {...{ navItemList, index }} />}
+              </Box>
             );
           })}
         </Box>
       </Container>
-      <NavigationBox {...{ navItemList, show }} />
     </>
   );
 }

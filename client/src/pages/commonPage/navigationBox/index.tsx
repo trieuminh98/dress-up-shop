@@ -4,10 +4,10 @@ import React, { Fragment } from 'react';
 import styles from './styles';
 
 function NavigationBox(props: any) {
-  const { navItemList, show } = props as any;
+  const { navItemList, index } = props as any;
   const { navBox, navItemHeader, navItem } = styles;
   return (
-    <Box sx={{ ...navBox, ...{ display: show ? 'flex' : 'none', textTransform: 'uppercase', position: 'absolute' } }}>
+    <Box component='div' id={`menu-${index}`} sx={navBox}>
       {navItemList.map(({ key: keyItem = '', itemList = [] }, index: string) => {
         return (
           <Fragment key={index}>
@@ -15,7 +15,11 @@ function NavigationBox(props: any) {
               <Typography sx={navItemHeader}>{keyItem}</Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
                 {(itemList as any).map((item: any, index: string) => {
-                  return <Box key={index} sx={navItem}>{item.description}</Box>;
+                  return (
+                    <Box key={index} sx={navItem}>
+                      {item.description}
+                    </Box>
+                  );
                 })}
               </Box>
             </Box>

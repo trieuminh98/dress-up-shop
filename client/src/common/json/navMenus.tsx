@@ -1,24 +1,66 @@
 const navMenus = [
   {
-    key: 'Du Exclusive',
+    key: 'Holiday Shop',
+    isShort: true,
     navItemList: [
       {
-        key: 'All du exclusive',
-        itemList: []
+        key: 'HSHD',
+        description: 'Holiday Deals'
       },
       {
-        key: 'Shop all',
-        itemList: [
-          {
-            key: 'GD',
-            description: 'Game day'
-          },
-          {
-            key: 'N',
-            description: 'Nashville'
-          }
-        ]
-      }
+        key: 'HSDE',
+        description: 'DU Exclusives'
+      },
+      {
+        key: 'HSSS',
+        description: 'Stocking Stuffers'
+      },
+      {
+        key: 'HSCG',
+        description: 'Cozy Gifts'
+      },
+      {
+        key: 'HSGC',
+        description: 'Gift Cards'
+      },
+    ]
+  },
+  {
+    key: 'Du Exclusive',
+    isShort: true,
+    navItemList: [
+      {
+        key: 'DEGD',
+        description: 'Game Day'
+      },
+      {
+        key: 'DEN',
+        description: 'Nashville'
+      },
+      {
+        key: 'DEC',
+        description: 'Charleston'
+      },
+      {
+        key: 'DES',
+        description: 'Savannah'
+      },
+      {
+        key: 'DEG',
+        description: 'Greenville'
+      },
+      {
+        key: 'DED',
+        description: 'Dahlonega'
+      },
+      {
+        key: 'DEH',
+        description: 'Hats'
+      },
+      {
+        key: 'DESB',
+        description: 'Stickers & Buttons'
+      },
     ]
   },
   {
@@ -105,7 +147,7 @@ const navMenus = [
     ]
   },
   {
-    key: 'Shop dresses',
+    key: 'Dresses',
     navItemList: [
       {
         key: 'All shop dresses',

@@ -5,7 +5,13 @@ const styles = {
     pl: 45,
     pt: 2,
     pb: 3,
-    width: '100%',
+    textTransform: 'uppercase',
+    position: 'absolute',
+    zIndex: 999,
+    bgcolor: 'white',
+    width: '100vw',
+    left: '0',
+    display: 'flex'
   },
   navItemHeader: {
     p: '15px 0',
@@ -18,6 +24,6 @@ const styles = {
     fontWeight: '400',
     p: '7px 0',
   },
-};
+} as const;
 
 export default styles;
