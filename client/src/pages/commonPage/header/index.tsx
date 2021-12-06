@@ -11,7 +11,7 @@ import NavigationBox from '../navigationBox';
 import styles from './styles';
 
 function Header() {
-  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu, drawerScrollable, box } = styles;
+  const { navUserActStyle, navUserActRegister, navUserActCart, navMenu, drawerScrollable, box, menuItem } = styles;
   const [state, setState] = useState(false);
 
   const toggleDrawer = (open: any) => {
@@ -40,7 +40,7 @@ function Header() {
     return (
       <Box position='absolute' zIndex='999' component='div' id={`menu-${index}`} bgcolor='white'>
         {navItemList.map((item: any) => {
-          return <MenuItem key={item.key}>{item.description}</MenuItem>;
+          return <MenuItem sx={menuItem} key={item.key}>{item.description}</MenuItem>;
         })}
       </Box>
     );
@@ -104,11 +104,8 @@ function Header() {
             return (
               <Box key={index} sx={{ ...box, ...getHoverCss(index, Boolean(isShort)) }}>
                 <Link to='/login'>
-                  <Typography
-                    id={index.toString()}
-                    sx={{ ...navUserActStyle, ...{ fontSize: '12px', fontWeight: '500', textTransform: 'uppercase', color: 'inherit' } }}
-                  >
-                    <span>{key}</span> <FontAwesomeIcon color='#f8b6a9' icon={faChevronDown} />
+                  <Typography id={index.toString()} sx={navUserActStyle}>
+                    <Box pt={2}>{key}</Box>
                   </Typography>
                 </Link>
                 {isShort ? <ShortMenu {...{ navItemList, index }} /> : <NavigationBox {...{ navItemList, index }} />}
