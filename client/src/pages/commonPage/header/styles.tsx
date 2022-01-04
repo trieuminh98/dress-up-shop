@@ -9,20 +9,47 @@ const styles = {
     },
   },
 
+  container: {
+    '& *': {
+      animationDuration: '0s !important',
+    },
+  },
+
+  animation: {
+    fontFamily: 'Avenir Next, sans-serif',
+    fontSize: '0.9em',
+    letterSpacing: '0.1em',
+    lineHeight: '1',
+    position: 'relative',
+    '&::before': {
+      content: "''",
+      borderRadius: '1px',
+      position: 'absolute',
+      bottom: 11,
+      left: 0,
+      width: 0,
+      height: '5%',
+      background: '#333',
+      WebkitTransition: '.6s' /* Safari and Chrome */,
+      MozTransition: '.6s' /* Firefox */,
+      msTransition: '.6s' /* IE 9 */,
+      OTransition: '.6s' /* Opera */,
+      transition: '.6s',
+    },
+  },
+
   navUserActStyle: {
+    fontSize: '13px',
     transition: 'color .15s ease',
-    padding: '0 10px',
-    fontSize: '12px',
     fontWeight: 500,
-    textTransform: 'uppercase',
     color: 'inherit',
     height: '100%',
     verticalAlign: 'middle',
   },
 
   box: {
-    padding: '0 18px',
     height: '100%',
+    padding: '0 18px',
   },
 
   navUserActStyleDiv: {
@@ -65,6 +92,14 @@ const styles = {
     paddingTop: '10px',
     position: 'relative',
     letterSpacing: '3px',
+  },
+  shortMenu: {
+    position: 'absolute',
+    left: 0,
+    zIndex: '999',
+    background: 'white',
+    fontSize: '5px',
+    boxShadow: '0 10px 20px rgb(0 0 0 / 9%)',
   },
   menuItem: {
     fontSize: '14px',

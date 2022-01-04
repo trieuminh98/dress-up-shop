@@ -1,5 +1,3 @@
-import { fadeInRight } from "services/animation";
-
 const styles = {
   richText: {
     mt: 14,
